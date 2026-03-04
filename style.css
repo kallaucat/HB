@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d1117; /* Fondo oscuro pro */
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-container {
+    position: relative;
+    z-index: 10; 
+    background: #161b22; 
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    
+    /* Borde de Neón Animado */
+    border: 3px solid transparent;
+    background-image: linear-gradient(#161b22, #161b22), 
+                      linear-gradient(45deg, #ff4d4d, #f97316, #fbbf24, #22c55e, #3b82f6, #a855f7);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    
+    /* Resplandor y Sombras */
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.4), 
+                0 0 60px rgba(255, 77, 77, 0.2);
+    
+    animation: borderRotate 5s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+.main-container:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes borderRotate {
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* stylelint-disable */
+.title {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #fbbf24, #ff4d4d);
+    -webkit-background-clip: text; /* Esto hace que el color solo esté en las letras */
+    -webkit-text-fill-color: transparent; /* Esto hace el texto invisible para que se vea el fondo */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.terminal-text {
+    background: #000000;
+    border-left: 4px solid #38bdf8;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 25px 0;
+    color: #00ff41; /* Verde Hacker */
+    text-align: left;
+    font-size: 0.9rem;
+    box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.terminal-text p {
+    margin: 8px 0;
+}
+
+.btn-retry {
+    background: linear-gradient(45deg, #ff4d4d, #fbbf24);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+    transition: 0.3s;
+}
+
+.btn-retry:hover {
+    letter-spacing: 1px;
+    transform: scale(1.05);
+}
+
+/* Estilos de las partículas que caen */
+.particula {
+    position: fixed;
+    top: -50px;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    animation: caer linear forwards;
+}
+
+@keyframes caer {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
